@@ -8,6 +8,12 @@ The long-term goal is a complete one-click Steam setup. For the 0.9 Beta, users
 must still provide a compatible Wine runtime themselves. Full one-click runtime
 installation is planned for future updates.
 
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/Dashboard.PNG)
+
 ## Beta Status
 
 Current release target: **NorthLine Launcher 0.9 Beta**
