@@ -56,7 +56,7 @@ NorthLine does not currently target Epic Games, GOG, Battle.net, Ubisoft Connect
 ## Requirements
 
 - Apple Silicon Mac
-- macOS 26 Tahoe or newer
+- macOS 15 Sequoia or newer
 - Network access for runtime and Steam downloads
 - Rosetta available on the system
 - A compatible Wine installation provided by the user
