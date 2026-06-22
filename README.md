@@ -8,7 +8,7 @@ NorthLine Launcher is a native SwiftUI macOS app with one job: making Windows St
 
 ### Home
 
-![Home](screenshots/Home.PNG)
+![Home](Home.PNG)
 
 ## What's New in v1.0
 
