@@ -2,50 +2,41 @@
 
 Run Windows Steam. The Mac way.
 
-NorthLine Launcher is a native SwiftUI macOS app focused on one job: making Windows Steam simple to launch and recover on Apple Silicon Macs.
-
-The long-term goal is a complete one-click Steam setup. For the 0.9 Beta, users
-must still provide a compatible Wine runtime themselves. Full one-click runtime
-installation is planned for future updates.
+NorthLine Launcher is a native SwiftUI macOS app with one job: making Windows Steam simple to run on Apple Silicon Macs. No Terminal. No manual setup. Just launch.
 
 ## Screenshots
 
-### Dashboard
+### Home
 
-![Dashboard](screenshots/Dashboard.PNG)
+![Home](screenshots/Home.PNG)
 
-## Beta Status
+## What's New in v1.0
 
-Current release target: **NorthLine Launcher 0.9 Beta**
+NorthLine Launcher is now out of beta. v1.0 ships the most-requested feature from the community: **fully automatic Wine and Game Porting Toolkit installation** — no Terminal, no manual downloads, no Apple ID login required.
 
-This is a public beta candidate. Steam launch, login, game installation and game
-launch have been verified locally, but broader hardware and game compatibility
-testing is still in progress.
-
-Important for 0.9 Beta: Wine must be installed by the user before relying on the
-launcher flow. NorthLine will keep improving runtime management, but the fully
-automatic one-click experience is not part of this beta cut yet.
+Hit "Install Wine & GPTK" once. NorthLine handles everything in the background.
 
 ## What NorthLine Is
 
-- A Steam-first launcher for Windows Steam on macOS
-- A native macOS app built with SwiftUI
+- A Steam-first launcher for Windows Steam on Apple Silicon Macs
+- A native macOS app built with SwiftUI and Apple's Liquid Glass design system
 - A focused Steam launcher with runtime diagnostics and recovery tools
-- A recovery-focused tool for users who should not need Terminal access
+- A tool built for users who should never need to touch Terminal
 
 ## What NorthLine Is Not
 
 NorthLine Launcher is **not** trying to replace CrossOver.
 
-CrossOver is a broad compatibility product for many Windows applications. NorthLine is intentionally narrower: it optimizes for the simplest possible Steam-first experience.
+CrossOver is a broad compatibility product for many Windows applications. NorthLine is intentionally narrower: it optimizes for the simplest possible Steam-first experience on Apple Silicon.
 
-NorthLine does not currently target Epic Games, GOG, Battle.net, Ubisoft Connect or arbitrary Windows applications.
+NorthLine does not target Epic Games, GOG, Battle.net, Ubisoft Connect, or arbitrary Windows applications.
 
 ## Features
 
+- **One-click Wine & GPTK installation** — Homebrew is bootstrapped silently if missing, GPTK is installed via Gcenx's maintained formula, all in-app with a step-by-step progress view
 - Launch Windows Steam from a NorthLine-managed prefix
-- Launch Steam from the native macOS app
-- Launch installed Steam games
+- Launch installed Steam games directly from the app
+- Full-bleed home screen showing your most recently played game
 - Detect runtime, Wine, Steam, Rosetta, GPTK and DXVK status
 - Maintain a dedicated runtime directory in Application Support
 - Show recent runtime and installation logs
@@ -56,12 +47,12 @@ NorthLine does not currently target Epic Games, GOG, Battle.net, Ubisoft Connect
 ## Requirements
 
 - Apple Silicon Mac
-- macOS 15 Sequoia or newer
+- **macOS Tahoe (26) or newer** — NorthLine is built entirely on Tahoe's native Liquid Glass APIs. Sonoma and Sequoia are not supported and will not be added.
 - Network access for runtime and Steam downloads
 - Rosetta available on the system
-- A compatible Wine installation provided by the user
 - A Steam account
-- Apple Game Porting Toolkit 3.0 disk image available when runtime setup requires it
+
+> Wine and GPTK are installed automatically by NorthLine. No manual setup required. On a completely fresh Mac without Homebrew, NorthLine will prompt for administrator access once during the initial Homebrew setup — this is a one-time step.
 
 NorthLine stores its managed files under:
 
@@ -81,9 +72,7 @@ Logs/
 
 ## Apple Silicon Support
 
-NorthLine is made for Apple Silicon and builds for `arm64`.
-
-The runtime layer is designed around Apple Silicon Macs and macOS Tahoe. Intel Macs are not a supported beta target.
+NorthLine is built for Apple Silicon and compiles for `arm64` only. Intel Macs are not a supported target.
 
 ## Troubleshooting
 
@@ -114,13 +103,10 @@ Open **Settings > Maintenance** for recovery:
 
 ## Known Issues
 
-- Game compatibility varies by title.
-- The beta currently focuses only on Windows Steam.
-- Wine must be installed by the user for 0.9 Beta.
-- Full one-click runtime installation is planned for future updates.
-- GPTK availability depends on the user having access to Apple's Game Porting Toolkit.
-- The app is not notarized until the release signing pipeline is completed.
+- Game compatibility varies by title — broader compatibility testing is ongoing.
+- The app focuses exclusively on Windows Steam.
 - Some Steam UI behavior may depend on Wine/GPTK updates.
+- The app is not notarized until the release signing pipeline is completed.
 
 ## FAQ
 
@@ -128,19 +114,17 @@ Open **Settings > Maintenance** for recovery:
 
 No. NorthLine installs and launches the Windows version of Steam in a managed runtime.
 
-### Do I need to know Wine?
+### Do I need to install Wine myself?
 
-For 0.9 Beta, you need a compatible Wine installation available on your Mac.
-NorthLine still handles the Steam-focused launcher flow and diagnostics, but
-fully automatic one-click runtime setup is planned for a future update.
+No. NorthLine installs Wine and Game Porting Toolkit automatically in the background with a single tap. No Terminal, no Homebrew knowledge, no manual downloads required.
 
 ### Can I use Epic Games or Battle.net?
 
-No. The beta is Steam-only.
+No. NorthLine is Steam-only by design.
 
 ### Is this a CrossOver replacement?
 
-No. CrossOver is a broad Windows app compatibility product. NorthLine is a focused Steam launcher.
+No. CrossOver is a broad Windows app compatibility product. NorthLine is a focused Steam launcher built for Apple Silicon.
 
 ### Where are logs stored?
 
@@ -149,3 +133,7 @@ No. CrossOver is a broad Windows app compatibility product. NorthLine is a focus
 ```
 
 You can also copy or export diagnostics from inside the app.
+
+### Why is macOS Tahoe required?
+
+NorthLine is built entirely on Apple's native Liquid Glass design system, which is exclusive to macOS Tahoe and newer. Supporting older macOS versions would require maintaining a separate, degraded UI — that's not a trade-off worth making.
